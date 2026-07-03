@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace App;
+use InvalidArgumentException;
+
 class Task 
 {
     private int $id;

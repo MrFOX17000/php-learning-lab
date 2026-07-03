@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/Task.php';
-require_once __DIR__ . '/../src/TaskManager.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\TaskManager;
 use PHPUnit\Framework\TestCase;
 
 class TaskManagerTest extends TestCase
@@ -15,7 +15,7 @@ class TaskManagerTest extends TestCase
         $this->assertEmpty($taskManager->getTasks());
     }
 
-    public function testCreateTaskAddsTaskToManager(): void    
+    public function testCreateTaskAddsTaskToManager(): void
     {
         $taskManager = new TaskManager();
         $task = $taskManager->createTask('Réviser PHP');
@@ -54,7 +54,7 @@ class TaskManagerTest extends TestCase
     {
         $taskManager = new TaskManager();
         $taskManager->createTask('Réviser SQL');
-        try{
+        try {
             $taskManager->createTask('  ');
             $this->fail('Une InvalidArgumentException était attendue.');
         } catch (InvalidArgumentException $e) {

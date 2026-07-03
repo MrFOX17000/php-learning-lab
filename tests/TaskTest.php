@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../src/Task.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\Task;
 use PHPUnit\Framework\TestCase;
 
 class TaskTest extends TestCase
